@@ -11,7 +11,6 @@ import {
   widget,
 } from "../assets/icons";
 import { useGetUserQuery } from "../store/api/apiSlice";
-import { Skeleton } from "antd";
 
 const Header = () => {
   const { data: userData, isLoading: isLoadingUser } = useGetUserQuery();
@@ -59,7 +58,7 @@ const Header = () => {
 
           <div className="hidden md:flex bg-gradient-to-t from-[#DBDEE5] to-[#F6F7F9] items-center gap-1 p-2 rounded-3xl">
             {isLoadingUser ? (
-              <Skeleton />
+              <></>
             ) : (
               <div className="w-9 h-9 bg-[#131316] rounded-full flex items-center justify-center text-white text-sm font-medium">
                 {userData?.first_name[0]}

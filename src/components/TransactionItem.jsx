@@ -1,36 +1,11 @@
 import { ArrowDownLeft, ArrowUpRight } from "lucide-react";
 import { HiArrowLongDown, HiArrowLongUp } from "react-icons/hi2";
+import { bgColors, statusColors } from "../Reusable/constant";
+import { formatDate } from "../Reusable/dateUtils";
+import { formatAmount } from "../Reusable/formatCurrency";
 
 const TransactionItem = ({ transaction }) => {
   const isCredit = transaction.type === "deposit";
-  const statusColors = {
-    successful: "text-[#075132]",
-    pending: "text-yellow-600",
-    failed: "text-[#961100]",
-    debit: "text-[#961100]",
-  };
-
-  const bgColors = {
-    successful: "bg-[#E3FCF2]",
-    pending: "bg-[#F9E3E0]",
-    debit: "bg-[#F9E3E0]",
-  };
-
-  const formatAmount = (amount) => {
-    return `USD ${Math.abs(amount).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })}`;
-  };
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "2-digit",
-      year: "numeric",
-    });
-  };
 
   return (
     <div className="flex items-center gap-4 py-4 hover:bg-gray-50 px-4 -mx-4 rounded-lg transition-colors">

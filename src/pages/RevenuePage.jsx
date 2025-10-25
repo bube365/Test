@@ -11,7 +11,7 @@ import TransactionItem from "../components/TransactionItem";
 import FilterDrawer from "../components/FilterDrawer";
 import { useMemo } from "react";
 import { EmptyState } from "../UI/Transaction/emptyState";
-import { formatCurrency } from "../Reusable/formatCurrency";
+import { formatAmount } from "../Reusable/formatCurrency";
 import { getDateRangeCategory, getDateRangeText } from "../Reusable/dateUtils";
 
 const RevenuePage = () => {
@@ -75,7 +75,7 @@ const RevenuePage = () => {
           <div className="flex flex-row w-full md:w-fit   mb-6 gap-4 lg:gap-16">
             <StatCard
               label="Available Balance"
-              value={formatCurrency(walletData?.balance)}
+              value={formatAmount(walletData?.balance)}
               info={false}
             />
             <button className="px-8 md:px-12 py-3 mt-[10px] lg:mt-[20px] h-fit bg-black text-white rounded-3xl text-sm font-medium hover:bg-gray-800 transition-colors w-full sm:w-auto">
@@ -93,7 +93,7 @@ const RevenuePage = () => {
             <StatCard
               key={label}
               label={label}
-              value={formatCurrency(value)}
+              value={formatAmount(value)}
               info
             />
           ))}
